@@ -200,8 +200,8 @@ main{
 }
 .menu{
     background-color: var(--container-color);
-    opacity: .7;
-    width: 100%;
+    opacity: 0.7;
+    width: 100vw;
     height: calc(100% - 4rem);
     max-width: 400px;
     position: fixed;
