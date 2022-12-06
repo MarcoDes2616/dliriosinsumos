@@ -104,7 +104,21 @@ window.addEventListener( "scroll", () =>{
     }
 });
 
+/// FUNCION PARA ALTERNAR COLOR DE MENUS
+const loadComponent = () => {
+    const loaderC = document.getElementById("loader")
+    
 
+    setTimeout( () => {
+        loaderC.classList.add("chao")
+        console.log("ya pasaron 3.5segundos");
+    }, 3500)
+}
+
+
+document.addEventListener( "DOMContentLoaded", () =>{
+    loadComponent()
+});
 
 /// EVENLISTENER MOSTRAR MENU Y CART CONTEINER
 
