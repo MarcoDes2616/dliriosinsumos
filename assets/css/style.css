@@ -157,7 +157,7 @@ menu{
 
 main{
     position: relative;
-    max-width: 73rem;
+    max-width: 50rem;
     margin: 0 auto;
 }
 .rrss{
@@ -641,7 +641,6 @@ footer section p{
         top: 100px;
         right: 0;
     }
-    
     .bx-sun, .icon_bag, .bx-grid-alt{
         width: 35px;
     }
