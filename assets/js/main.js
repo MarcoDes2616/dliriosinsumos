@@ -41,33 +41,47 @@ const changeOne = document.getElementById("change1")
 
 const changeTwo = document.getElementById("change2")
 
+const itemsPFiltrado = []
 
+
+/*
 /// OBTENCION BOTONES DE MENU DE FILTROS
 
 const btnAll = document.querySelector(".all");
-
 const btnVinil = document.querySelector(".viniles");
-
 const btnCinta = document.querySelector(".cintas");
-
 const btnAplique = document.querySelector(".apliques");
-
 const btnDecor = document.querySelector(".decorables");
 
 
-/// FILTROS DE PRODUCTOS
+/// FILTRO DE ARTICULOS
 
-const filterProductsall = itemsP;
+btnAll.addEventListener("click", () => {
+    const filterProductsAll = () => itemsP
+    itemsPFiltrado.push(filterProductsAll)
+})
 
-const filterProductsVinil = itemsP.filter(product => product.type === "vinil");
+btnVinil.addEventListener("click", () => {
+    const filterProductsVinil = () => itemsP.filter(product => product.type === "vinil")
+    itemsPFiltrado.push(filterProductsVinil)
+})
 
-const filterProductsCinta = itemsP.filter(product => product.type === "cinta");
+btnCinta.addEventListener("click", () => {
+    const filterProductsCinta = () => itemsP.filter(product => product.type === "cinta");
+    itemsPFiltrado.push(filterProductsCinta)
+})
 
-const filterProductsAplique = itemsP.filter(product => product.type === "aplique");
+btnAplique.addEventListener("click", () => {
+    const filterProductsAplique = () => itemsP.filter(product => product.type === "aplique");
+    itemsPFiltrado.push(filterProductsAplique)
+})
 
-const filterProductsDecorable = itemsP.filter(product => product.type === "decorable");
+btnDecor.addEventListener("click", () => {
+    const filterProductsDecorable = () => itemsP.filter(product => product.type === "decorable");
+    itemsPFiltrado.push(filterProductsDecorable)
+})
 
-
+*/
 
 /// FUNCION TEMA OSCURO / CLARO... MODIFICA VARIABLES, INTERCAMBIAN SUN POR MOON, CAMBIA BACKGROUN DE DISCOVER
 
@@ -104,17 +118,17 @@ window.addEventListener( "scroll", () =>{
     }
 });
 
-/// FUNCION PARA ALTERNAR COLOR DE MENUS
+/// FUNCION PARA OCULTAR LOADED
 const loadComponent = () => {
     const loaderC = document.getElementById("loader")
     
-
     setTimeout( () => {
         loaderC.classList.add("chao")
-        console.log("ya pasaron 3.5segundos");
-    }, 3500)
+    }, 4500)
 }
 
+
+/// DOM CONTENT LOADED
 
 document.addEventListener( "DOMContentLoaded", () =>{
     loadComponent()
@@ -154,7 +168,7 @@ function createCardProductGeneral(product){
         <div class="article_description">
           <h4>$ ${product.price}</h4>
           <p> Disponibilidad: ${product.quantity}</p>
-          <h5>${product.name}</h5>
+          <h5 class="txtkalan">${product.name}</h5>
         </div>
       `
     productContain.append(articleC)

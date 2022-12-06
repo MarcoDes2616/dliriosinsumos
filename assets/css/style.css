@@ -81,7 +81,7 @@ h1{
 }
 nav{
     width: 77%;
-    max-width: 60rem;
+    max-width: 65rem;
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -684,7 +684,7 @@ footer section p{
 }
 @media screen and (min-width: 992px){
     header{
-        padding: 0 calc(50vw - 600px);
+        padding: 0 calc(50vw - 550px);
     }
     header img{
         width: 160px;
