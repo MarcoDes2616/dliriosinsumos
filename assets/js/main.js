@@ -109,7 +109,7 @@ window.addEventListener( "scroll", () =>{
 /// FUNCION PARA ALTERNAR COLOR DE MENUS
 
 window.addEventListener( "scroll", () =>{
-    if(scrollY >= 850){
+    if(scrollY >= 800){
         changeOne.classList.remove("change")
         changeTwo.classList.add("change")
     } else {
