@@ -684,7 +684,7 @@ footer section p{
 }
 @media screen and (min-width: 992px){
     header{
-        padding: 0 calc(50vw - 550px);
+        padding: 0 calc(50vw - 530px);
     }
     header img{
         width: 160px;
