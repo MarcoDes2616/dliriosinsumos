@@ -37,6 +37,9 @@ const totalCart = document.getElementById("totalCart")
 
 let sumaArticulos = 0
 
+const changeOne = document.getElementById("change1")
+
+const changeTwo = document.getElementById("change2")
 
 
 /// OBTENCION BOTONES DE MENU DE FILTROS
@@ -86,6 +89,18 @@ window.addEventListener( "scroll", () =>{
         header.classList.add("scroll-bg")
     }else{
         header.classList.remove("scroll-bg")
+    }
+});
+
+/// FUNCION PARA ALTERNAR COLOR DE MENUS
+
+window.addEventListener( "scroll", () =>{
+    if(scrollY >= 900){
+        changeOne.classList.remove("change")
+        changeTwo.classList.add("change")
+    } else {
+        changeOne.classList.add("change")
+        changeTwo.classList.remove("change")
     }
 });
 

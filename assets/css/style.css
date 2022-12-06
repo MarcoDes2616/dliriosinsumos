@@ -45,7 +45,7 @@ body.dark{
     --first-color: hsl(182, 53%, 74%);
     --button-color: hsl(246, 16%, 12%);
     --button-color-alt: hsl(0, 0%, 28%);
-    --card-color: hsla(246, 16%, 5%);
+    --card-color: rgb(38, 38, 54);
     --title-color: hsl(0, 0%, 95%);
     --text-color: hsl(0, 0%, 75%);
     --body-color: hsl(250, 26%, 17%);
@@ -100,12 +100,14 @@ menu{
     display: none;
     justify-content: center;
     align-items: center;
-    gap: 1.3rem;
-}
-menu p{
+    gap: 1.4rem;
     color: var(--title-color);
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+}
+.change{
+    color: var(--first-color);
+    filter: drop-shadow(3px 3px 3px var(--container-color));
 }
 .icons_contain{
     width: 40%;
@@ -203,16 +205,22 @@ main{
     opacity: 0.7;
     width: 100vw;
     height: calc(100% - 4rem);
-    max-width: 450px;
     position: fixed;
     z-index: 999;
     bottom: 0;
     right: 0;
     padding: 2.5rem 1.5rem 1rem 1.5rem;
     transition: right .3s linear;
+    box-shadow: -7px 0px 6px var(--first-color);
 }
 .menu center p{
     color: var(--first-color);
+    font-size: 1.3rem;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    padding: .4rem 0;
+    width: 60%;
+    background-color: var(--card-color);
 }
 
 .cart-close, .menu-close{
@@ -297,9 +305,11 @@ center{
 }
 .discover:hover{
     color: white;
+    cursor: pointer;
 }
 .add_cart:hover{
     background-color: var(--first-color);
+    cursor: pointer;
 }
 .filter_contain{
     display: flex;
@@ -351,9 +361,8 @@ center{
 .products_contain{
     padding: 2rem 0;
     height: auto;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 3rem;
 }
 .card_article{
@@ -361,7 +370,7 @@ center{
     width: 14rem;
     height: 18rem;
     margin: 20px auto;
-    background-color: var(--first-color);
+    background-color: var(--card-color);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -382,7 +391,7 @@ center{
     align-items: center;
     flex-wrap: wrap;
     text-align: left;
-    color: var(--body-color);
+    
 }
 .add{
     position: absolute;
@@ -406,7 +415,7 @@ center{
     font-size: 1.3rem;
     width: 30%;
     border-right: 1px solid;
-    
+    margin-bottom: .5rem;
 }
 .article_description p{
     font-size: .8rem;
@@ -414,8 +423,9 @@ center{
     padding-left: .5rem;
 }
 .article_description h5{
-    font-size: 1rem;
+    font-size: 1.3rem;
     width: 100%;
+    color: var(--first-color);
 }
 footer{
     width: 100%;
@@ -433,6 +443,9 @@ footer{
     margin-top: 120px;
     color: var(--text-color);
 }
+footer a{
+    color: var(--text-color);
+}
 footer section{
     width: 270px;
 }
@@ -443,6 +456,12 @@ footer section h5{
 footer section p{
     font-size: .8rem;
     margin: .2rem .5rem;
+}
+.footer_rrss{
+    margin-top: 1rem;
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
 }
 #cart-content{
     width: 360px;
@@ -528,6 +547,7 @@ footer section p{
     header img{
         width: 120px;
         position: relative;
+        filter: drop-shadow(4px 4px 2px var(--first-color));
     }
     .icons_contain{
         width: 20%;
@@ -580,6 +600,9 @@ footer section p{
     .filter_contain{
         margin-top: 190px;
     }
+    .products_contain{
+        grid-template-columns: 1fr 1fr;
+    }
     .card_article{
         position: relative;
         width: 18rem;
@@ -598,6 +621,7 @@ footer section p{
     }
     header img{
         width: 160px;
+        filter: drop-shadow(6px 6px 3px var(--first-color));
     }
     h1{
         font-size: 2.2rem;
@@ -607,7 +631,10 @@ footer section p{
         justify-content: space-between;
     }
     menu p:hover{
-        color: var(--first-color);
+        color: var(--container-color);
+    }
+    .change:hover{
+        color: var(--title-color);
     }
     .featured_product{
         justify-content: space-between;
@@ -637,9 +664,19 @@ footer section p{
         height: 75px;
         font-size: 1.4rem;
     }
+    .products_contain{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
     footer{
         padding: 6rem 0;
-        padding-left: calc(50vw - 580px);
     }
-    
+    footer p{
+        font-size: 1.7rem;
+    }
+    footer section h5{
+        font-size: 1.3rem;
+    }
+    footer section p{
+        font-size: 1.1rem;
+    }
 }
