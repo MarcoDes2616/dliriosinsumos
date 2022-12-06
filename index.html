@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/img/logo3.png" type="image/x-icon">
+    <title>D´lirios Insumos</title>
+</head>
+<body>
+    <header>
+        <img src="./assets/img/logo3.png" alt="logo empresa">
+        <h1>Dlirios Insumos</h1>
+        <nav>
+            <menu>
+                <a href="#inicio"><p>HOME</p></a><br><br>
+                <a href="#sect_productos"><p>PRODUCTOS</p></a>
+            </menu>
+            </div>
+            <div class="icons_contain">
+                <i class='bx bx-moon bx-sm' id="theme_btn"></i>
+                <div class="icon_bag" id="cart-btn">
+                    <i class='bx bxs-shopping-bag bx-sm'></i>
+                    <span class="bag_count" id="bag_count"></span>
+                </div>
+                <i class='bx bx-grid-alt bx-sm' id="btn_menu"></i>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="rrss">
+            <a href=""><img src="./assets/img/rrss/whatsapp.png" alt="icono whatsapp"></a>
+            <a href=""><img src="./assets/img/rrss/instagram.png" alt="icono instagram"></a>
+        </section>
+        <div class="cart-container hide" id="cart-container">
+            <div class="cart" id="cart">
+                <div class="cart-close" id="close-cart">
+                    <i class='bx bx-x bx-md'></i>
+                </div>
+                <h4>My Carrito</h4>
+                <div id="cart-content">
+                    <!--
+                    <div class="cards_in_cart" id="cards_in_cart">
+                        <img src="./assets/images/featured1.png" alt="">
+                        <div class="cic_description">
+                            <h4>title</h4>
+                            <p>una cosa |<span id="cic_precio">otra cosa</span></p>
+                            <h5 id="s_total">sub precio</h5>
+                            <div class="resumen">
+                                <div>
+                                    <button>-</button>
+                                    <p>0</p>
+                                    <button>+</button>
+                                </div>
+                                <i class='bx bxs-eraser bx-md'></i>
+                            </div>
+                        </div>
+                    </div>-->
+                    
+                </div>
+                <!--<p class="total">Tu compra: $<span id="totalCart"></span></p>-->
+            </div>
+        </div>
+        <div class="menu hide" id="menu">
+            <div class="menu-close" id="close_menu">
+                <i class='bx bx-x bx-md'></i>
+            </div>
+            <center>
+                <a href="#inicio"><p id="home">HOME</p></a><br><br>
+                <a href="#sect_productos"><p id="productos">PRODUCTOS</p></a>
+            </center>
+        </div>
+        <section class="featured_product" id="featured_product">
+            <div class="fp_discover" id="discover">
+                <img class="fp_img" src="" alt="">
+            </div>
+            <div class="fp_description">
+                <h3>Producto Destacado<br><span>10% DESCUENTO</span></h3>
+                <P>Vinil Glitter importado. Medida standart (25 x 75cm). Con 10% de descuento hasta agotar stock</P>
+                <h5>$14.00</h5>
+                <div class="fp_btn">
+                    <a href="#discover"><div class="discover">Discover</div></a>
+                    <div class="add_cart" id="add_cart">AL CARRITO</div>
+                </div>
+            </div>
+            
+        </section>
+        <div class="filter_contain" id="filter_contain">
+            <div class="all">
+                <h4>Mostrar Todos</h4>
+                <p>Todos los productos</p>
+            </div>
+            <div class="materiales">
+                <div class="viniles">
+                    <h4>Viniles</h4>
+                    <p>Disponibles <span id="count_viniles"></span></p>
+                </div>
+                <div class="cintas">
+                    <h4>Cintas</h4>
+                    <p>Disponibles <span id="count_cintas"></span></p>
+                </div>
+                <div class="apliques">
+                    <h4>Apliques</h4>
+                    <p>Disponibles <span id="count_apliques"></span></p>
+                </div>
+                <div class="decorables">
+                    <h4>Decorables</h4>
+                    <p>Disponibles <span id="count_decorables"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="products_contain" id="products_contain">
+           <!--aqui los productos
+           <article>
+            <button class="add" id="product.id"></button>
+            <img src=`${product.image}` alt="">
+            <div>
+                <h4>`$ ${product.price}`</h4>
+                <p>`Disponibilidad: ${product.quantity}`</p>
+                <h5>`${product.name}`</h5>
+            </div>
+           </article>-->
+        </div>
+    </main>
+    <footer>
+        <section>
+            <h5>Ubicanos en</h5>
+            <p>Quito-Ecuador <br> Calle José Amesaba OE2-12</p>
+        </section>
+        <section>
+            <h5>Acerca de</h5>
+            <p>Quienes somos</p>
+            <p>Atención al Cliente</p>
+            <p>Nuestros aliados</p>
+        </section>
+        <section>
+            <h5>Nuestros Productos</h5>
+            <p>Viniles y Cuerinas</p>
+            <p>Cintas</p>
+            <p>Apliques</p>
+            <p>Decorables</p>
+        </section>
+        <section>
+            <h5>Redes Sociales</h5>
+            <div class="footer_rrss">
+                <a href=""><i class='bx bxl-facebook bx-md'></i></a>
+                <a href=""><i class='bx bxl-instagram-alt bx-md'></i></a>
+            </div>
+        </section>
+    </footer>
+    <script src="./assets/js/products.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
