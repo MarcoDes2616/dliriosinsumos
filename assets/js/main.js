@@ -43,6 +43,9 @@ const changeTwo = document.getElementById("change2")
 
 const itemsPFiltrado = []
 
+const tarjetaG = document.getElementsByClassName("card_article")
+
+const imgCard = document.getElementsByClassName("article_img")
 
 /*
 /// OBTENCION BOTONES DE MENU DE FILTROS
@@ -109,7 +112,7 @@ window.addEventListener( "scroll", () =>{
 /// FUNCION PARA ALTERNAR COLOR DE MENUS
 
 window.addEventListener( "scroll", () =>{
-    if(scrollY >= 800){
+    if(scrollY >= 750){
         changeOne.classList.remove("change")
         changeTwo.classList.add("change")
     } else {
@@ -132,6 +135,8 @@ const loadComponent = () => {
 
 document.addEventListener( "DOMContentLoaded", () =>{
     loadComponent()
+    getLocalStorag()
+    carrito = JSON.parse(window.localStorage.getItem("cart"))
 });
 
 /// EVENLISTENER MOSTRAR MENU Y CART CONTEINER
@@ -151,9 +156,13 @@ menuProductos.addEventListener( "click", () => menu.classList.add("hide")  ); //
 menuHome.addEventListener( "click", () => menu.classList.add("hide")  );    // ETIQUETA P DEL MENU
 
 
+const move = () => {
+    imgCard.classList.add("move")
+}
 
-/// MOSTRAR ELEMENTOS POR CLASE
-
+const unMove = () => {
+    imgCard.classList.remove("move")
+}
 
 
 /// CREACION DE TARJETA DE PRODUCTOS GENERALES
@@ -161,6 +170,8 @@ menuHome.addEventListener( "click", () => menu.classList.add("hide")  );    // E
 function createCardProductGeneral(product){
     const articleC = document.createElement("article")
       articleC.className = "card_article"
+      articleC.onmouseover = "move()"
+      articleC.onmouseout = "unMove()"
     
     articleC.innerHTML = `
         <button class="add" id="${product.id}">+</button>
@@ -188,36 +199,38 @@ itemsP.forEach(product => {
     })
 });
 
+
 /// FORMANDO ARRAY ITEM SELECTED
+
 counter.innerText = 0
+
 const agregarAlCarrito = (prodId) => {
     
-    addProduct(prodId)
-    //const itemSelected = itemsP.find( (prod) => prod.id === prodId)
-    //carrito.push(itemSelected);
+    addProduct(prodId);
     actualizarCart();
-    counter.innerHTML = carrito.length
-}
+    counter.innerText = carrito.length;
+};
 
+let cartActual
 function addProduct( prodId ){
-
+    //let cartActual = JSON.parse(window.localStorage.getItem("cart"))
     let itemAdd = carrito.find( (item) => item.id === prodId )
-
-    if( itemAdd ){
-
-        //Condicion para saber si aun pueden seleccionar mas productos de ese tipo
-        let index = carrito.indexOf( itemAdd )
-
-        carrito[index].qs++
-        
-    }else{
     
+    if( itemAdd && itemAdd.quantity > itemAdd.qs ){
+        let index = carrito.indexOf( itemAdd )
+        //cartActual[index].qs++
+        carrito[index].qs++
+        //window.localStorage.setItem("cart", JSON.stringify(cartActual))
+    }
+    if (itemAdd == undefined){
         const itemSelected = itemsP.find( item => item.id === prodId )
         itemSelected.qs = 1
         carrito.push( itemSelected )
-    } console.log(carrito);
+        //window.localStorage.setItem("cart", JSON.stringify(carrito))
+    }
+    
 }
-
+const carritoc = [1, 2, 3]
 
 
 /// CREACION DE TARJETA DENTRO DE CART CONTEINER
@@ -250,7 +263,7 @@ function createCardProductSelected(productSelected){
 
 const actualizarCart = () => {
     cartProductsSelected.innerHTML= ""
-
+    
     carrito.forEach(productSelected =>{
         createCardProductSelected(productSelected)
     });
@@ -292,6 +305,18 @@ const sumar = (prodId) => {
     actualizarCart()
     counter.innerHTML = carrito.length
 }
+
+const getLocalStorag = () => {
+    let cart = window.localStorage.getItem("cart")
+    if (cart){
+        cart = JSON.parse( cart )
+        console.log(cart);
+    } else {
+        window.localStorage.setItem("cart", JSON.stringify([]))
+    }
+}
+
+
 
 /*
 const sumaTotalMount = (prodId) => {
