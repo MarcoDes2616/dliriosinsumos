@@ -701,9 +701,6 @@ footer section p{
     nav{
         justify-content: space-between;
     }
-    menu p:hover{
-        color: var(--container-color);
-    }
     .change:hover{
         color: var(--title-color);
     }
