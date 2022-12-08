@@ -762,7 +762,8 @@ footer section p{
         grid-template-columns: 1fr 1fr 1fr;
     }
     footer{
-        padding: 6rem calc(50vw - 550px);
+        padding: 6rem calc(50vw - 570px);
+        gap: 1.5rem;
     }
     footer p{
         font-size: 1.6rem;
