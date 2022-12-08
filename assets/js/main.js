@@ -140,10 +140,10 @@ const loadComponent = () => {
 /// DOM CONTENT LOADED
 
 document.addEventListener( "DOMContentLoaded", () =>{
+    carritoS()
     loadComponent()
     cargarProductos()
-    carritoS()
-   
+    
 });
 
 /// EVENLISTENER MOSTRAR MENU Y CART CONTEINER
@@ -239,8 +239,10 @@ const carritoS = () => {
         console.log("hay carrito");
         carrito = JSON.parse(localStorage.getItem("cartS"))
         console.log(carrito);
+        actualizarCart()
+        counter.innerHTML = carrito.length
     }
-    actualizarCart()
+    
 };
 
 
@@ -290,7 +292,7 @@ counter.innerText = 0
 
 const agregarAlCarrito = (prodId) => {
     totalCart.innerText = 0
-
+    
     addProduct(prodId);
     actualizarCart();
 
