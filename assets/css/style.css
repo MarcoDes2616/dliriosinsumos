@@ -180,6 +180,7 @@ main{
 }
 .cart-container{
     background-color: var(--body-color);
+    opacity: .9;
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -192,6 +193,7 @@ main{
 .cart{
     position: absolute;
     background-color: var(--container-color);
+    opacity: 1;
     width: 100%;
     height: 100vh;
     max-width: 400px;
@@ -507,7 +509,7 @@ footer section p{
 .cards_in_cart{
     width: 300px;
     height: 150px;
-    background-color: var(--body-color);
+    background-color: var(--container-color);
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
