@@ -748,7 +748,7 @@ footer section p{
         line-height: 3.4rem;
     }
     .fp_description p{
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     .discover{
         width: 120px;
@@ -774,9 +774,9 @@ footer section p{
         font-size: 1.6rem;
     }
     footer section h5{
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     footer section p{
-        font-size: 1rem;
+        font-size: .9rem;
     }
 }
