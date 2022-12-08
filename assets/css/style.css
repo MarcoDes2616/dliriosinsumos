@@ -205,7 +205,7 @@ main{
 .cart{
     position: relative;
     width: 100%;
-    
+    padding-bottom: 1rem;
 }
 .menu{
     background-color: var(--container-color);
