@@ -762,7 +762,7 @@ footer section p{
         grid-template-columns: 1fr 1fr 1fr;
     }
     footer{
-        padding: 6rem calc(50vw - 570px);
+        padding: 6rem calc(50vw - 580px);
         gap: 1rem;
     }
     footer section{
