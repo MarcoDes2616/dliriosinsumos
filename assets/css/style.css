@@ -154,7 +154,6 @@ menu{
     font-size: .6rem;
     background-color: hsl(0, 0%, 15%);
 }
-
 main{
     position: relative;
     max-width: 67rem;
@@ -222,7 +221,6 @@ main{
     width: 60%;
     background-color: var(--card-color);
 }
-
 .cart-close, .menu-close{
     position: absolute;
     top: 1rem;
@@ -230,6 +228,28 @@ main{
 }
 .cart-container.hide{
     left: -110%;
+}
+.mycart{
+    font-size: 1.3rem;
+}
+.bx-cart-download{
+    color: var(--first-color)
+}
+.resumenCart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.totalI{
+    display: block;
+    width: 40%;
+    font-size: 1rem;
+    color: var(--first-color);
+}
+.totalI span{
+    font-size: 1.3rem;
 }
 .menu.hide{
     right: -110%;
@@ -510,10 +530,9 @@ footer section p{
 }
 #s_total{
     width: 100%;
-    font-size: 1.2rem;
     margin: .5rem 0;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--first-color);
 }
 .resumen{

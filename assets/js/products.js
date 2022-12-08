@@ -7,8 +7,7 @@ const itemsP = [
       category: 'hoodies',
       quantity: 10,
       type: "vinil",
-      classification: "glitter",
-      qs: 0
+      classification: "glitter"
     },
     {
       id: 2,
@@ -18,8 +17,7 @@ const itemsP = [
       category: 'shirts',
       quantity: 15,
       type: "cinta",
-      classification: "llana",
-      qs: 0
+      classification: "llana"
     },
     {
       id: 3,
@@ -29,8 +27,7 @@ const itemsP = [
       category: 'sweatshirts',
       quantity: 20,
       type: "aplique",
-      classification: "coronitas",
-      qs: 0
+      classification: "coronitas"
     },
     {
       id: 4,
@@ -40,7 +37,9 @@ const itemsP = [
       category: 'sweatshirts',
       quantity: 20,
       type: "decorable",
-      classification: "vinchas",
-      qs: 0
+      classification: "vinchas"
     }
   ]
+
+  
+

@@ -33,15 +33,21 @@ const counter = document.getElementById('bag_count');             // CONTADOR DE
 
 const sumarItem = document.getElementById("sumar")
 
-const totalCart = document.getElementById("totalCart")
+const totalCart = document.getElementById("totalC")
 
-let sumaArticulos = 0
+const totalCartItems = document.getElementById("totalA")
 
 const changeOne = document.getElementById("change1")
 
 const changeTwo = document.getElementById("change2")
 
 const itemsPFiltrado = []
+
+const carrito = []
+
+let totalCarrito = 0
+
+let totalItemsCarrito = 0
 
 const tarjetaG = document.getElementsByClassName("card_article")
 
@@ -136,7 +142,8 @@ const loadComponent = () => {
 document.addEventListener( "DOMContentLoaded", () =>{
     loadComponent()
     getLocalStorag()
-    carrito = JSON.parse(window.localStorage.getItem("cart"))
+    cargarProductos()
+    //carrito = JSON.parse(window.localStorage.getItem("cart"))
 });
 
 /// EVENLISTENER MOSTRAR MENU Y CART CONTEINER
@@ -170,8 +177,6 @@ const unMove = () => {
 function createCardProductGeneral(product){
     const articleC = document.createElement("article")
       articleC.className = "card_article"
-      articleC.onmouseover = "move()"
-      articleC.onmouseout = "unMove()"
     
     articleC.innerHTML = `
         <button class="add" id="${product.id}">+</button>
@@ -188,49 +193,22 @@ function createCardProductGeneral(product){
 
 /// MOSTRAR PRODUCTOS GENERALES
 
-const carrito = []
 
-itemsP.forEach(product => {
-    createCardProductGeneral(product);
+const cargarProductos = () => {
+    itemsP.forEach(product => {
+        createCardProductGeneral(product);
 
-    const addCart = document.getElementById(product.id)
-    addCart.addEventListener("click", () => {
-        agregarAlCarrito(product.id)
-    })
-});
+        const addCart = document.getElementById(product.id)
+        addCart.addEventListener("click", () => {
+            agregarAlCarrito(product.id)
+        })
+})};
 
 
-/// FORMANDO ARRAY ITEM SELECTED
 
-counter.innerText = 0
 
-const agregarAlCarrito = (prodId) => {
-    
-    addProduct(prodId);
-    actualizarCart();
-    counter.innerText = carrito.length;
-};
 
-let cartActual
-function addProduct( prodId ){
-    //let cartActual = JSON.parse(window.localStorage.getItem("cart"))
-    let itemAdd = carrito.find( (item) => item.id === prodId )
-    
-    if( itemAdd && itemAdd.quantity > itemAdd.qs ){
-        let index = carrito.indexOf( itemAdd )
-        //cartActual[index].qs++
-        carrito[index].qs++
-        //window.localStorage.setItem("cart", JSON.stringify(cartActual))
-    }
-    if (itemAdd == undefined){
-        const itemSelected = itemsP.find( item => item.id === prodId )
-        itemSelected.qs = 1
-        carrito.push( itemSelected )
-        //window.localStorage.setItem("cart", JSON.stringify(carrito))
-    }
-    
-}
-const carritoc = [1, 2, 3]
+
 
 
 /// CREACION DE TARJETA DENTRO DE CART CONTEINER
@@ -263,11 +241,51 @@ function createCardProductSelected(productSelected){
 
 const actualizarCart = () => {
     cartProductsSelected.innerHTML= ""
-    
     carrito.forEach(productSelected =>{
         createCardProductSelected(productSelected)
     });
+    resumeCart(carrito)
 }
+
+
+/// FORMANDO ARRAY ITEM SELECTED
+
+function addProduct( prodId ){
+    //let cartActual = JSON.parse(window.localStorage.getItem("cart"))
+    let itemAdd = carrito.find( (item) => item.id === prodId )
+    
+    if( itemAdd && itemAdd.quantity > itemAdd.qs ){
+        let index = carrito.indexOf( itemAdd )
+        //cartActual[index].qs++
+        carrito[index].qs++
+        //window.localStorage.setItem("cart", JSON.stringify(cartActual))
+    }
+    if (itemAdd == undefined){
+        const itemSelected = itemsP.find( item => item.id === prodId )
+        carrito.push( itemSelected )
+        itemSelected.qs = 1
+        
+        //window.localStorage.setItem("cart", JSON.stringify(carrito))
+    }
+    console.log(carrito);
+    console.log(carrito.length);
+    
+}
+
+
+/// FUNCION FINAL AGREGAR AL CARRITO
+
+counter.innerText = 0
+
+const agregarAlCarrito = (prodId) => {
+    totalCart.innerText = 0
+
+
+    addProduct(prodId);
+    actualizarCart();
+    
+    counter.innerText = carrito.length;
+};
 
 /// ELIMINAR DEL CARRITO
 
@@ -310,19 +328,19 @@ const getLocalStorag = () => {
     let cart = window.localStorage.getItem("cart")
     if (cart){
         cart = JSON.parse( cart )
-        console.log(cart);
     } else {
         window.localStorage.setItem("cart", JSON.stringify([]))
     }
 }
 
 
-
-/*
-const sumaTotalMount = (prodId) => {
-        
-    carrito.forEach( Items => {
-    sumaArticulos += (Items.qs * Items.price)
-    })
-    totalCart.textContent = sumaArticulos
-}*/
+function resumeCart(array){
+    totalCarrito = 0
+    totalItemsCarrito = 0
+    for (let i = 0; i< array.length; i++){
+        totalCarrito += array[i].price * array[i].qs
+        totalItemsCarrito += array[i].qs
+    }
+    totalCart.innerText = totalCarrito
+    totalCartItems.innerText = totalItemsCarrito
+}
