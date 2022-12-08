@@ -43,7 +43,7 @@ const changeTwo = document.getElementById("change2")
 
 const itemsPFiltrado = []
 
-const carrito = []
+let carrito = []
 
 let totalCarrito = 0
 
@@ -141,9 +141,13 @@ const loadComponent = () => {
 
 document.addEventListener( "DOMContentLoaded", () =>{
     loadComponent()
-    getLocalStorag()
     cargarProductos()
-    //carrito = JSON.parse(window.localStorage.getItem("cart"))
+    if (localStorage.getItem("cartS")){
+        console.log("hay carrito");
+        carrito = JSON.parse(localStorage.getItem("cartS"))
+        console.log(carrito);
+    }
+    
 });
 
 /// EVENLISTENER MOSTRAR MENU Y CART CONTEINER
@@ -205,12 +209,6 @@ const cargarProductos = () => {
 })};
 
 
-
-
-
-
-
-
 /// CREACION DE TARJETA DENTRO DE CART CONTEINER
 
 function createCardProductSelected(productSelected){
@@ -239,11 +237,12 @@ function createCardProductSelected(productSelected){
 
 // MOSTRAR TARJETAS DE PRODUCTOS SELECCIONADOS
 
-const actualizarCart = () => {
+const actualizarCart = (carrito) => {
     cartProductsSelected.innerHTML= ""
     carrito.forEach(productSelected =>{
         createCardProductSelected(productSelected)
     });
+    localStorage.setItem("cartS", JSON.stringify(carrito))
     resumeCart(carrito)
 }
 
@@ -256,16 +255,12 @@ function addProduct( prodId ){
     
     if( itemAdd && itemAdd.quantity > itemAdd.qs ){
         let index = carrito.indexOf( itemAdd )
-        //cartActual[index].qs++
         carrito[index].qs++
-        //window.localStorage.setItem("cart", JSON.stringify(cartActual))
     }
     if (itemAdd == undefined){
         const itemSelected = itemsP.find( item => item.id === prodId )
         carrito.push( itemSelected )
         itemSelected.qs = 1
-        
-        //window.localStorage.setItem("cart", JSON.stringify(carrito))
     }
     console.log(carrito);
     console.log(carrito.length);
@@ -279,11 +274,8 @@ counter.innerText = 0
 
 const agregarAlCarrito = (prodId) => {
     totalCart.innerText = 0
-
-
     addProduct(prodId);
     actualizarCart();
-    
     counter.innerText = carrito.length;
 };
 
@@ -324,15 +316,8 @@ const sumar = (prodId) => {
     counter.innerHTML = carrito.length
 }
 
-const getLocalStorag = () => {
-    let cart = window.localStorage.getItem("cart")
-    if (cart){
-        cart = JSON.parse( cart )
-    } else {
-        window.localStorage.setItem("cart", JSON.stringify([]))
-    }
-}
 
+/// FUNCION PARA TOTALIZAR COMPRA
 
 function resumeCart(array){
     totalCarrito = 0
@@ -344,3 +329,15 @@ function resumeCart(array){
     totalCart.innerText = totalCarrito
     totalCartItems.innerText = totalItemsCarrito
 }
+
+/// CREACION DE ESPACIOS DE MEMORIA EL LOCALSTORAG
+/*
+const getLocalStorag = () => {
+    let cart = window.localStorage.getItem("cart")
+    
+    if (cart){
+        cart = JSON.parse( cart )
+    } else {
+        window.localStorage.setItem("cart", JSON.stringify([]))
+    }
+}*/
