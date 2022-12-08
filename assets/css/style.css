@@ -178,28 +178,34 @@ main{
 .rrss img:hover{
     transform: scale(1.2);
 }
-.cart-container{
-    background-color: var(--body-color);
-    opacity: .9;
-    width: 100%;
+.cartG{
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 2000;
+    display: flex;
+    flex-direction: row;
     transition: left .3s linear;
-    padding: 2.5rem 1.5rem 1rem 1.5rem;
+}
+.cart-asideL{
+    width: calc(100vw - 400px);
+    height: 100vh;
+    background-color: var(--body-color);
+    opacity: .5;
+}
+.cartR{
+    width: 100vw;
+    max-width: 400px;
+    height: 100%;
+    background-color: var(--container-color);
+    padding: 1rem .5rem;
 }
 .cart{
-    position: absolute;
-    background-color: var(--container-color);
-    opacity: 1;
+    position: relative;
     width: 100%;
-    height: 100vh;
-    max-width: 400px;
-    top: 0;
-    right: 0;
-    padding: 2.5rem 1.5rem 1rem 1.5rem;
+    
 }
 .menu{
     background-color: var(--container-color);
@@ -228,7 +234,7 @@ main{
     top: 1rem;
     right: 1.5rem;
 }
-.cart-container.hide{
+.cartG.hide{
     left: -110%;
 }
 .mycart{
