@@ -95,7 +95,6 @@ nav{
 .scroll-bg{
     background-color: var(--body-color);
 }
-
 menu{
     display: none;
     justify-content: center;
@@ -103,7 +102,7 @@ menu{
     gap: 1.4rem;
     color: var(--title-color);
     font-weight: 800;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 .change{
     color: var(--first-color);
@@ -291,7 +290,7 @@ center{
 .fp_description{
     width: 100%;
     align-self: flex-start;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     padding: 0 20px;
 }
 .fp_description p{
@@ -763,15 +762,15 @@ footer section p{
         grid-template-columns: 1fr 1fr 1fr;
     }
     footer{
-        padding: 6rem calc(50vw - 600px);
+        padding: 6rem calc(50vw - 550px);
     }
     footer p{
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
     footer section h5{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     footer section p{
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }
