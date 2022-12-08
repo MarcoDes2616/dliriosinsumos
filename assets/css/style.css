@@ -119,19 +119,7 @@ menu{
 .bx-sun, .icon_bag, .bx-grid-alt{
     width: 30px;
 }
-.bx-moon:hover{
-    cursor: pointer;
-    transform: scale(1.2);
-}
-.bx-grid-alt:hover{
-    cursor: pointer;
-    transform: scale(1.2);
-}
-.bx-sun:hover{
-    cursor: pointer;
-    transform: scale(1.2);
-}
-.icon_bag:hover{
+.bx:hover{
     cursor: pointer;
     transform: scale(1.2);
 }

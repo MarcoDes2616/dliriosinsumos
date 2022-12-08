@@ -95,10 +95,21 @@ btnDecor.addEventListener("click", () => {
 /// FUNCION TEMA OSCURO / CLARO... MODIFICA VARIABLES, INTERCAMBIAN SUN POR MOON, CAMBIA BACKGROUN DE DISCOVER
 
 const themeDark = () => {
+    let fpt = "fp_discover bg"
     if( btnTheme.classList.contains("bx-moon") ){
         btnTheme.classList.replace("bx-moon", "bx-sun")
+        localStorage.removeItem("theme")
+        localStorage.removeItem("themeF")
+        localStorage.setItem("theme", JSON.stringify("bx-sun"))
+        localStorage.setItem("themeB", JSON.stringify("dark"))
+        localStorage.setItem("themeF", JSON.stringify(fpt))
     }else{
         btnTheme.classList.replace("bx-sun", "bx-moon")
+        localStorage.removeItem("theme")
+        localStorage.removeItem("themeF")
+        localStorage.setItem("theme", JSON.stringify("bx-moon"))
+        localStorage.setItem("themeB", JSON.stringify(""))
+        localStorage.setItem("themeF", JSON.stringify("fp_discover"))
     }
     body.classList.toggle( "dark" )
     fptd.classList.toggle( "bg" )
@@ -138,12 +149,13 @@ const loadComponent = () => {
 
 
 /// DOM CONTENT LOADED
-
 document.addEventListener( "DOMContentLoaded", () =>{
-    carritoS()
+    getStorage()
     loadComponent()
     cargarProductos()
-    
+    getThemeIcon()
+    getThemeBody()
+    getThemeFP()
 });
 
 /// EVENLISTENER MOSTRAR MENU Y CART CONTEINER
@@ -193,7 +205,6 @@ function createCardProductGeneral(product){
 
 /// MOSTRAR PRODUCTOS GENERALES
 
-
 const cargarProductos = () => {
     itemsP.forEach(product => {
         createCardProductGeneral(product);
@@ -234,20 +245,55 @@ function createCardProductSelected(productSelected){
 
 /// EXTRAER PRODUCTOS DE STORAGEL
 
-const carritoS = () => {
+const getStorage = () => {
     if(localStorage.getItem("cartS")){
-        console.log("hay carrito");
         carrito = JSON.parse(localStorage.getItem("cartS"))
-        console.log(carrito);
         actualizarCart()
         counter.innerHTML = carrito.length
+    } else {
+        localStorage.setItem("cartS", JSON.stringify([]))
     }
-    
+//////////////////////////////////////
 };
 
+const getThemeIcon = () => {
+    let themeD = "bx-moon"
+    let themeS
+    if(localStorage.getItem("theme")){
+        themeS = JSON.parse(localStorage.getItem("theme"))
+        btnTheme.classList.add(themeS)
+    } else {
+        localStorage.setItem("theme", JSON.stringify(themeD));
+    }
+}
 
+const getThemeBody = () => {
+    let themeBD = ""
+    let themeBS
+    if(localStorage.getItem("themeB")){
+        themeBS = JSON.parse(localStorage.getItem("themeB"))
+        body.classList.add(themeBS)
+    } else {
+        localStorage.setItem("themeB", JSON.stringify(themeBD));
+    }
+}
+
+const getThemeFP = () => {
+    let themeFD = "fp_discover"
+    let themeFS
+    if(localStorage.getItem("themeF")){
+        themeFS = JSON.parse(localStorage.getItem("themeF"))
+        fptd.className = themeFS
+    } else {
+        localStorage.setItem("themeF", JSON.stringify(themeFD));
+    }
+}
+
+
+const themeSS = () =>{
+    
+}
 // MOSTRAR TARJETAS DE PRODUCTOS SELECCIONADOS
-
 
 const actualizarCart = () => {
     cartProductsSelected.innerHTML= ""
@@ -260,8 +306,6 @@ const actualizarCart = () => {
 
     resumeCart(carrito)
 }
-
-
 
 /// FORMANDO ARRAY ITEM SELECTED
 
@@ -299,6 +343,7 @@ const agregarAlCarrito = (prodId) => {
     counter.innerText = carrito.length;
 };
 
+
 /// ELIMINAR DEL CARRITO
 
 const eliminarDelCarrito = (prodId) => {
@@ -322,6 +367,7 @@ const restar = (prodId) => {
     actualizarCart()
     counter.innerHTML = carrito.length
 }
+
 
 /// FUNCION SUMAR
 
