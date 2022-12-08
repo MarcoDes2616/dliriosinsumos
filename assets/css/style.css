@@ -763,7 +763,7 @@ footer section p{
     }
     footer{
         padding: 6rem calc(50vw - 570px);
-        gap: 1.5rem;
+        gap: 1rem;
     }
     footer p{
         font-size: 1.6rem;
