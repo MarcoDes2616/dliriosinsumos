@@ -43,7 +43,7 @@ const changeTwo = document.getElementById("change2")
 
 const itemsPFiltrado = []
 
-const carrito = []
+let carrito = []
 
 let totalCarrito = 0
 
@@ -142,6 +142,8 @@ const loadComponent = () => {
 document.addEventListener( "DOMContentLoaded", () =>{
     loadComponent()
     cargarProductos()
+    carritoS()
+   
 });
 
 /// EVENLISTENER MOSTRAR MENU Y CART CONTEINER
@@ -229,15 +231,34 @@ function createCardProductSelected(productSelected){
     cartProductsSelected.append(cardsInCart)
 };
 
+
+/// EXTRAER PRODUCTOS DE STORAGEL
+
+const carritoS = () => {
+    if(localStorage.getItem("cartS")){
+        console.log("hay carrito");
+        carrito = JSON.parse(localStorage.getItem("cartS"))
+        console.log(carrito);
+    }
+    actualizarCart()
+};
+
+
 // MOSTRAR TARJETAS DE PRODUCTOS SELECCIONADOS
+
 
 const actualizarCart = () => {
     cartProductsSelected.innerHTML= ""
+
     carrito.forEach(productSelected =>{
         createCardProductSelected(productSelected)
     });
+
+    localStorage.setItem("cartS", JSON.stringify(carrito))
+
     resumeCart(carrito)
 }
+
 
 
 /// FORMANDO ARRAY ITEM SELECTED
