@@ -741,10 +741,11 @@ footer section p{
     }
     .fp_description{
         width: 600px;
-        margin-bottom: 6rem;
+        margin-bottom: 5rem;
     }
     .fp_description h3{
         font-size: 3rem;
+        line-height: 3.4rem;
     }
     .fp_description p{
         font-size: 1.1rem;
