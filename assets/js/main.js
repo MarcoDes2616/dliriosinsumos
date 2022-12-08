@@ -141,9 +141,7 @@ const loadComponent = () => {
 
 document.addEventListener( "DOMContentLoaded", () =>{
     loadComponent()
-    getLocalStorag()
     cargarProductos()
-    //carrito = JSON.parse(window.localStorage.getItem("cart"))
 });
 
 /// EVENLISTENER MOSTRAR MENU Y CART CONTEINER
@@ -205,12 +203,6 @@ const cargarProductos = () => {
 })};
 
 
-
-
-
-
-
-
 /// CREACION DE TARJETA DENTRO DE CART CONTEINER
 
 function createCardProductSelected(productSelected){
@@ -251,21 +243,19 @@ const actualizarCart = () => {
 /// FORMANDO ARRAY ITEM SELECTED
 
 function addProduct( prodId ){
-    //let cartActual = JSON.parse(window.localStorage.getItem("cart"))
+    
     let itemAdd = carrito.find( (item) => item.id === prodId )
     
     if( itemAdd && itemAdd.quantity > itemAdd.qs ){
         let index = carrito.indexOf( itemAdd )
-        //cartActual[index].qs++
+        
         carrito[index].qs++
-        //window.localStorage.setItem("cart", JSON.stringify(cartActual))
+        
     }
     if (itemAdd == undefined){
         const itemSelected = itemsP.find( item => item.id === prodId )
         carrito.push( itemSelected )
         itemSelected.qs = 1
-        
-        //window.localStorage.setItem("cart", JSON.stringify(carrito))
     }
     console.log(carrito);
     console.log(carrito.length);
@@ -280,10 +270,9 @@ counter.innerText = 0
 const agregarAlCarrito = (prodId) => {
     totalCart.innerText = 0
 
-
     addProduct(prodId);
     actualizarCart();
-    
+
     counter.innerText = carrito.length;
 };
 
@@ -322,15 +311,6 @@ const sumar = (prodId) => {
 
     actualizarCart()
     counter.innerHTML = carrito.length
-}
-
-const getLocalStorag = () => {
-    let cart = window.localStorage.getItem("cart")
-    if (cart){
-        cart = JSON.parse( cart )
-    } else {
-        window.localStorage.setItem("cart", JSON.stringify([]))
-    }
 }
 
 
