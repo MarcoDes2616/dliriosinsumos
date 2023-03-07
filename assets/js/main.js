@@ -158,7 +158,7 @@ document.addEventListener( "DOMContentLoaded", () =>{
     getThemeFP()
 });
 
-/// EVENLISTENER MOSTRAR MENU Y CART CONTEINER
+/// EVENLISTENER MOSTRAR MENU Y CART CONTAINER
 
 btnTheme.addEventListener( "click", () => themeDark()); // EJECUTA LA FUNCION themeDark
 
